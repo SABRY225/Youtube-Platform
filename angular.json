@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "E-Commerce-Angular": {
+    "Youtube-Clone": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/e-commerce-angular",
+            "outputPath": "dist/Youtube Clone",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "E-Commerce-Angular:build:production"
+              "buildTarget": "Youtube-Clone:build:production"
             },
             "development": {
-              "buildTarget": "E-Commerce-Angular:build:development"
+              "buildTarget": "Youtube-Clone:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,5 +92,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f96a3232-2cb5-47e3-8ca7-cc0de8d2088a"
   }
 }

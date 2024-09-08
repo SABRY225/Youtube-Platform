@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'E-Commerce-Angular';
+  title = 'Youtube-Clone';
 }
