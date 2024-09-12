@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد</title>
+</head>
+<body>
+    <div class="parent">
+        <form action="">
+            <a href="https://www.youtube.com/">إنشاء حساب جديد</a>
+            <input type="email" name="email" [(ngModel)]="loginObj.email" placeholder="البريد الإلكتروني" required>
+                <input type="password" name="password"  [(ngModel)]="loginObj.password" placeholder="كلمة المرور" required>
+            <a href="https://www.youtube.com/">هل نسيت كلمة السر؟</a>
+                <button type="button" class="btn" (click)="onLogin()">إرسال</button>
+        </form>
+        <span>
+            <img src="https://cdn.usbrandcolors.com/images/logos/youtube-logo.svg" alt="youtube"/>
+        </span>
+    </div>
+    <div class="footer">
+        <hr>
+        <p>All copyrights to ITI &copy; 2024-2025 </p>
+    </div>
+</body>
+</html>
