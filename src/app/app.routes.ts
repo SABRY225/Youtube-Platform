@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+<<<<<<< HEAD
 import { AppPageComponent } from './Pages/app-page/app-page.component';
 import { SignInComponent } from './Auth/sign-in/sign-in.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
@@ -31,4 +32,28 @@ export const routes: Routes = [
     ]},
 
     { path: '**', component: PageNotFoundComponent }, 
+=======
+import { LoginComponent } from './Auth/login/login.component';
+import { LayoutComponent } from './Auth/layout/layout.component';
+import { DashboardComponent } from './Auth/dashboard/dashboard.component';
+
+export const routes: Routes = [
+    {
+        path:'',redirectTo:'Login',pathMatch:'full'
+    },
+    {
+        path:'Login',
+        component:LoginComponent
+    },
+    {
+        path:'',
+        component:LayoutComponent,
+        children:[
+            {
+                path:'Dashboard',
+                component:DashboardComponent
+            }
+        ]
+    }
+>>>>>>> 9f7b57f (Add Page Login ,Layout and Dashboard)
 ];

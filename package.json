@@ -19,6 +19,10 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "bootstrap": "^5.3.3",
+<<<<<<< HEAD
+=======
+    "node-modules": "^1.0.1",
+>>>>>>> 9f7b57f (Add Page Login ,Layout and Dashboard)
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
