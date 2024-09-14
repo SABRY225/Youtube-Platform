@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< HEAD
 @import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+=======
+@import 'bootstrap/dist/css/bootstrap.min.css';
+*{
+    font-family: 'Cairo';
+}
+>>>>>>> 9baf56e21dc7bffc0048d5495ecf60e134c240f5
