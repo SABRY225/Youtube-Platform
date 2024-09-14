@@ -6,6 +6,15 @@ export interface User {
     password: string
 }
 
+export interface CurrentUser {
+    id:string,
+    role: string,
+    userName: string,
+    country: string,
+    email: string,
+    profilePicture: string
+}
+
 export interface VerifyUser {
     email: string,
     otp: string

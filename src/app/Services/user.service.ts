@@ -7,11 +7,24 @@ import { User } from '../Models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl='https://youtubeplatformapi-production.up.railway.app/api/auth/';
+  private apiUrl='http://localhost:3000/api/user/';
 
   constructor(private http:HttpClient) { }
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl+'register', user);
+  currentUser(): Observable<any> {
+    return this.http.get(this.apiUrl+'current-user',{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  getUsers(): Observable<any> {
+    return this.http.get(this.apiUrl,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
   }
 }
