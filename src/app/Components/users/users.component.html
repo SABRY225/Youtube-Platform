@@ -1,1 +1,26 @@
-<p>users works!</p>
+<table>
+    <thead class="bg-light">
+        <tr>
+            <th style="color: red;">Remove User</th>
+            <th class="bg-white">Age</th>
+            <th style="color: red;">Country</th>
+            <th class="bg-white">Email</th>
+            <th style="color: red;">UserName</th>
+        </tr>
+    </thead>
+    <tbody class="bg-light">
+        @for(user of users;track user.id){
+
+            <tr>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteUser(user.id)"><i class="fa-solid fa-trash " ></i>
+                    </button>
+                </td>
+                <td  class="bg-white">{{calcAge(user.dateOfBirth)}}</td>
+                <td style="color: red;">{{user.country}}</td>
+                <td  class="bg-white">{{user.email}}</td>
+                <td style="color: red;">{{user.userName}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

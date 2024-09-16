@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ForgetPassword, ResultLogin, SendOTPDate, User, UserLogin, VerifyUser } from '../Models/user';
@@ -8,6 +8,7 @@ import { ForgetPassword, ResultLogin, SendOTPDate, User, UserLogin, VerifyUser }
 })
 export class AuthService {
   private apiUrl='https://youtubeplatformapi-production.up.railway.app/api/auth/';
+  private token:string | null =null;
 
   constructor(private http:HttpClient) { }
 
@@ -33,4 +34,8 @@ export class AuthService {
   forgetPassword(forgetPasswordData: ForgetPassword): Observable<any> {
       return this.http.put(this.apiUrl+'forget-password',forgetPasswordData);
   }
+
+
+
+ 
 }
