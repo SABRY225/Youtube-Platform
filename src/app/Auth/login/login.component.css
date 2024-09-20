@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.parent {
+    padding: 20px;
+    width: 400px;
+    margin: 200px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.parent form {
+    position: relative;
+}
+.parent form a {
+    display: block;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+}
+.parent form a:first-child {
+    bottom: 100%;
+    left: 0;
+}
+.parent input {
+    display: block;
+    margin-top: 20px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.parent input::placeholder {
+    text-align: center;
+    color: #282828;
+    font-size: 18px;
+}
+.parent input:focus {
+    outline: none;
+}
+.parent button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    color: white;
+    background-color: rgba( 255 0 0);
+    box-shadow : 1px 1px 2px black,0 0 2px black,0 0 2px black;
+}
+.parent span {
+    display: block;
+}
+.parent span img {
+    width: 200px;
+    margin: 0 0 40px 40px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.footer p {
+    text-align: center;
+    color: #ccc;
+    padding: 10px;
+}

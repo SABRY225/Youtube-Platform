@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../Models/user';
@@ -21,6 +21,23 @@ export class UserService {
   }
   getUsers(): Observable<any> {
     return this.http.get(this.apiUrl,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${userId}`,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    }); 
+  }
+   //getStats
+   getStats():Observable<any>{
+    return this.http.get(this.apiUrl+'Counts',{
       headers:{
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
