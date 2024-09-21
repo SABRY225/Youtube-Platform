@@ -1,1 +1,116 @@
-<p>profile works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img src={{user.backgroundUser}} alt="" class="imgBackground">
+        </div>
+    </div>
+    <div class="col-md-12 mt-3 d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <div class="m-2">
+                <button href="" class="btn btn-dark p-0" (click)="openModal()">
+                    <svg width="45" height="45" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="40" height="37.3333" fill="url(#pattern0_112_13)" />
+                        <defs>
+                            <pattern id="pattern0_112_13" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_112_13" transform="matrix(0.01 0 0 0.0107143 0 -0.0357146)" />
+                            </pattern>
+                            <image id="image0_112_13" width="100" height="100"
+                                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABy0lEQVR4nO3dWUoDYRBF4UbR5TngtCQHXIXjjpzjHkSfvfJLHkQEJam2TyfnW0GlDkl3nqrrJEmSJGkEkqwnOUhyleQuyVv0Nt1F28l+29F/xdhJMnH/v3pKst1niNUkp7/PoW9Okqz0EcQYszvu42dK89mqfIC330PN57nkQT99m1KNvYog10XDKLmoCPLgJsvcVQR5rZtn6b1WBFEhg8AYBMYgMAaBMQiMQWAMArPwQbqRz2uQgRkExiAwBoExCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIDCZIN3Kh7AEzyMAwe8AMMjDMHjCDDAyzh8B1I5/XIAMzCIxBYAwCYxAYg8AYBMYgMAaBMQiMQWAMAmMQGIPAGATGIDAGgTEIjEFgDAJjEJiFDzI2BoExCIxBYAwCYxAYg8AYZAGDeNClzktFkPvCgZbdbUWQy6E/xQI5qwjSDu2qxm5FkLUkj0UDLbNJ2QXpdvV46E8zcu9JNkpifInSrh5rNoelMaZBVtrV4xkHWuZvxlEv57u/hNnymfIn7ULqZm8hfnjQ77Xbru3d2j+Pn9of6Jsk5+1tqu3oX2JIkiRJUjefDxgPHrw0gZ7pAAAAAElFTkSuQmCC" />
+                        </defs>
+                    </svg>
+
+                </button>
+            </div>
+            <div class="m-2">
+                <a [routerLink]="['/home/editProfile']" routerLinkActive="router-link-active"  class="btn btn-danger d-flex align-items-center">
+                    <svg width="35" height="35" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="46" height="46" fill="url(#pattern0_112_16)" />
+                        <defs>
+                            <pattern id="pattern0_112_16" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                <use xlink:href="#image0_112_16" transform="scale(0.01)" />
+                            </pattern>
+                            <image id="image0_112_16" width="100" height="100"
+                                xlink:href="data:image/png;base64,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" />
+                        </defs>
+                    </svg>
+                    <span class="fs-5 text-light fw-bold">Edit Account</span>
+                </a>
+            </div>
+        </div>
+        <div class=" d-flex align-items-center">
+            <div class="fs-4 fw-bold m-2">{{user.userName}}</div>
+            <img src={{user.profilePicture}} alt="" class="imgUser">
+        </div>
+    </div>
+    <div class="col-md-12  justify-content-between">
+        <hr>
+    </div>
+    <div class="col-md-12  justify-content-between">
+        <div>
+            <button class="btn m-2" [style.background]="colorBtnPlaylist" style="color:#fff" (click)="displayPlaylist()">Playlist</button>
+            <button class="btn m-2" [style.background]="colorBtnVideo" (click)="displayVideo()" style="color:#fff">Videos</button>
+        </div>
+        @if(isDisplayScreen){
+            <app-myplaylist></app-myplaylist>
+        }
+        @if(!isDisplayScreen){
+            <app-myvideos></app-myvideos>
+        }
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeDisplay()" ></button>
+            </div>
+            <div class="modal-body">
+                @if (!isDisplay) {
+                    <a data-bs-dismiss="modal" [routerLink]="['/home/video']"  class="btn w-100 btn-light d-flex slgin-items-center m-2" >
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="24" height="24" fill="url(#pattern0_112_70)" />
+                            <defs>
+                                <pattern id="pattern0_112_70" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_112_70" transform="scale(0.0104167)" />
+                                </pattern>
+                                <image id="image0_112_70" width="96" height="96"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR4nO2dz26OURDGfyQaKQtLFjZICGXlCljbahOJWxCuwIZYUK3qwtbSFUgQVlwA1hIrNv5UE5Fi5Mh5N9Iq+U47M+95fsnszzzPzJzv/c7J+4IQQgghhBBCCCGEEBszAywAr4BVwDqP1arFQtVmy5gCloEfAZK2oPEdWKpaNRf/SYAELUk8bm3CcoCkLFncaSX+TG0t74QsWRTNTrQwYDFAMpY05lsY8DpAIpY0XrYw4EuARCxprLQwwDsJSx4yABngXoWmDvAXwjSC/MUwh9AegAxwr0JTB/gLYRpB/mKYQ2gPQAa4V6GpA/yFMI2gfxPhAzAH7AYO1SO+tQBCdrMHzK6zhpPA0wBidmHA9F/Wch54G0DUURuwGcWgq8DXAOJ2acDAQeB+AIG7NWDgTL0Y5S10twYUdgGXgE8BBO/SgIH9wL1gt/cmJt2CgdPA8wDid2tAYQdwEXgnA3wMGNgH3AC+qQN8DBg4CjzM2NHpFrwJ54A3mfIZmwHD0/S1bbp0PDFjNGDgcoZ8xmzAnm14ZpiYsRvwM3o+YzbgSoZ8xroJX9cmjIsB+hnq1AHH9CDm91fEouPB/sSkW3BlZ/0z7r2T8Nb739EvnIXv0oADOpDxPZL8HKDiu+uAszqU9zHgMPAgQIV31wHTupjldzVxVlcTt74D5tYR/hTwLMA46WIEfQQuAHuBI8BdXU/3ryJLHOk6wEYWMgAZ4F6Fpg7wF8I0gvzFMIfQHoAMcK9CUwf4C2EaQf5imENoD0AGuFehZe6AlQBJWNIoR6QTo1cX4/vq4tsBKsmSxs0WBpRXsOv19fy3+EWz4zRiKUA1WbIo35RpxlT9LId3UpYkHtW7SrQ2oXyWQ+OIDYVfq5XfXPw/94T5usPr2wL81qBocavlzBdCCCGEEEIIIYQQjI5fc/0YrfaLSC4AAAAASUVORK5CYII=" />
+                            </defs>
+                        </svg>
+                        <span class="fw-bold fs-5 add">Video</span>
+                    </a>
+                    <button (click)="displyAddPlaylist()" class="btn w-100 btn-light d-flex slgin-items-center m-2">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="24" height="24" fill="url(#pattern0_112_67)" />
+                            <defs>
+                                <pattern id="pattern0_112_67" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_112_67" transform="scale(0.01)" />
+                                </pattern>
+                                <image id="image0_112_67" width="100" height="100"
+                                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVR4nO3cPYoVQRhG4aMYGJppKJi7AANjJzAy1tBUwQ0I4gJcQYOhqeFsYAIXYGQwIxiJiJk4fnKhwB9EG7xjv1V1HviyCZo6l+6uvj0XJEmSJEnSXB4BH4HqfN4AB3TuCvAlYDFrT/OWAYJ8DVjIMsh3D4EPAYtZ/zhDnLIkSRp5f1EjXPxH219U7/uV0fYX1XuQkfYXtedxvyJJinEHeB9wcazB52TtfuVdwMHWJHO8JsjWB1mTjUHoPIj2yyBhDBLGIGEMEsYgYQwSxiBhDBLGIGEMEsYgYQwSxiBhDBLGIGG6D/IUuA+cZwzdB1nacbwCbtK/YYJUm5fANfo1XJACPgPPgEv0Z8gg1Wb3/tgD4AL9GDpItXkN3KYPUwSpNofAdbJNFaSAU+A5cJlM0wWpNp+Ax8BFskwbpH54f/YecI4M0weptghHwI2taxiEnz6Ru39UfQFcNch2p6wySGaQI09ZGUGOvajv1+Jtb9+3vaduDHOCHPro5OwtK0L4cPE/Wv4QwsfvG1h+E8IvqDa0/BLDr3A3trQQvuQQctv7BLgb9LSW2Z/2jsYgYQwSxiBhDBLGIGEMEsYgYQwSxiBhDBLGIGEMEsYgYQwSxiCjBXE40zUwCFkfsr86CTjImmRW/Rj/QfvDrQ+2Bp/dGt9aE0SSJEmSJLGRb891f0EUJQFjAAAAAElFTkSuQmCC" />
+                            </defs>
+                        </svg>
+                        <span class="fw-bold fs-5 add">Playlist</span>
+                    </button>
+                }
+                @if (isDisplay) {
+                    <form class="text-center" (ngSubmit)="onSubmit()">
+                        <label for="name" class="fw-bold fs-4 mb-3">Title of PlayList</label>
+                        <input type="text" id="name" [(ngModel)]="playlist.name" name="name" class="form-control" required>
+                        <input type="submit" value="Add" class="btn btn-dark m-2" [disabled]="!playlist.name">
+                    </form>
+                    <div class="text-center fs-5" [style.color]="colorText">{{mass}}</div>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeDisplay()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

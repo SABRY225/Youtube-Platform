@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-container">
+            <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                <div class="mt-1">
+                    <div class="label"><label for="title" class="form-label fs-4">Title Video <span class="text-danger">*</span></label></div>
+                    <input type="text" class="form-control" name="title" id="title" required [(ngModel)]="video.title" placeholder="Enter Video " >
+                </div>
+                <div class="mt-5">
+                    <div class="label"> 
+                        <label for="description" class="form-label fs-4">Description of Video <span class="text-danger">*</span></label>
+                    </div>
+                    <textarea name="description" id="description" class="form-control" required [(ngModel)]="video.description" placeholder="Enter Description "></textarea>
+                </div>
+                <div class="mt-5">
+                    <div class="label">
+                        <label for="videoUrl" class="form-label fs-4">add Video <span class="text-danger">*</span></label>
+                    </div>
+                    <input type="text" class="form-control" name="videoUrl" id="videoUrl" placeholder="Enter Video URL" required [(ngModel)]="video.videoUrl">
+                </div>
+                <div class="mt-5">
+                    <div class="label">
+                        <label for="backImgVideoUrl" class="form-label fs-4">add Background Image to Video <span class="text-danger">*</span></label>
+                    </div>
+                    <input type="text" class="form-control" name="backgroundUser" id="backgroundUser" placeholder="Enter Background Image to Video"  required [(ngModel)]="video.backImgVideoUrl">
+                </div>
+                <div class="mt-5">
+                    @if (!isEdite) {
+                        <div class="label">
+                            <label for="country" class="form-label fs-4">Category <span class="text-danger">*</span></label>
+                        </div>
+                        <select class="form-select" name="categoryId " id="categoryId " required [(ngModel)]="categoryId">
+                            <option value=''>Enter Country</option>
+                            @for (item of category; track $index) {
+                                <option value={{item.id}}>{{item.name}}</option>
+                            }
+                        </select>
+                    }
+                </div>
+                <div class="text-center mt-5 mb-5">
+                        @if (isEdite) {
+                            <input type="submit" value="Update Video" class="btn btn-dark">
+                        }
+                        @else {
+                            <input type="submit" value="Add Video" class="btn btn-dark">
+                        }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

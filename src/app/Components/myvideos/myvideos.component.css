@@ -1,0 +1,18 @@
+.myVideo{
+    direction: rtl;
+}
+.box{
+    width: 310px;
+}
+.imgVideo{
+    width: 100%;
+}
+.title{
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+a{
+    text-decoration: none;
+}

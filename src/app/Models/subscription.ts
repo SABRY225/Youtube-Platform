@@ -1,2 +1,4 @@
-export interface Subscription {
+export interface SubscriptionUser {
+    userName:string,
+    profilePicture:string,
 }

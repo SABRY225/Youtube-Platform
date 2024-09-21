@@ -12,6 +12,10 @@ import { SubscribesComponent } from './Components/subscribes/subscribes.componen
 import { ProfileComponent } from './Components/profile/profile.component';
 import { YourComponent } from './Components/your/your.component';
 import { UsersComponent } from './Components/users/users.component';
+import { EditProfileComponent } from './Components/edit-profile/edit-profile.component';
+import { VideoComponent } from './Components/video/video.component';
+import { PlaylistComponent } from './Components/playlist/playlist.component';
+import { VideoPageComponent } from './Pages/video-page/video-page.component';
 
 export const routes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +25,12 @@ export const routes: Routes = [
         {path:'profile',component:ProfileComponent},
         {path:'your',component:YourComponent},
         {path:'users',component:UsersComponent},
+        {path:'editProfile',component:EditProfileComponent},
+        {path:'video',component:VideoComponent},
+        {path:'PlayList/:idplaylist',component:PlaylistComponent},
+        {path:'video/:videoId',component:VideoPageComponent},
+        {path:'editVideo/:videoId',component:VideoComponent},
+        { path: '**', component: PageNotFoundComponent }, 
     ]},
     {path:'auth',component:AppPageComponent,children:[
         {path:'',component:SignInComponent},
@@ -28,6 +38,7 @@ export const routes: Routes = [
         {path:'sendOTP',component:SendOTPComponent},
         {path:':email/verify',component:VerifyComponent},
         {path:':email/forgetPassword',component:ForgetPasswordComponent},
+        { path: '**', component: PageNotFoundComponent }, 
     ]},
 
     { path: '**', component: PageNotFoundComponent }, 

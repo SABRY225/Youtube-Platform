@@ -1,1 +1,43 @@
-<p>users works!</p>
+@if (users) {
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">userName</th>
+            <th scope="col">email</th>
+            <th scope="col">country</th>
+            <th scope="col">Remove User</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of users; track $index) {
+        <tr class="text-center">
+            <td>{{item.userName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.country}}</td>
+            <td>
+                <button class="btn btn-danger"  (click)="openModal(item)">Remove</button>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Remove User</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove the user <strong>{{ selectedUser?.userName }}</strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" (click)="removeUser()">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+}

@@ -1,1 +1,55 @@
-<p>your works!</p>
+<div class="container">
+    <div class="row  mt-2 ">
+        <div class="col-md-12 fw-bold m-2 ">
+            <div class="col-md-3 btn btn-dark fs-3">
+                My Favorite Videos
+            </div>
+        </div>
+            @if (videos.length==0) {
+                <div class="col-md-12 text-center ">
+                    <div class="fs-1 text-secondary boxCurd">I am not subscribed to any channel at the moment</div>
+                </div>
+            }@else {
+                @for (item of videos; track $index) {
+                    <div class="col-sm-12 col-md-3 box border shadow p-1 m-5 items">
+                        <img [src]='item.backImgVideoUrl' alt="" class="imgVideo">
+                        <div class="d-flex">
+                            <div class="title mt-1">{{item.title}}</div>
+                        </div>
+                    </div>
+                }
+            }
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12 fw-bold m-2 ">
+            <div class="col-md-3 btn btn-dark fs-3">
+                My Favorite PlayList
+            </div>
+            </div>
+            @if (playlists.length==0) {
+                <div class="col-md-12 text-center ">
+                    <div class="fs-1 text-secondary boxCurd">I am not subscribed to any channel at the moment</div>
+                </div>
+            }@else {
+                @for (item of playlists; track $index) {
+                    <div  class="col-sm-12 col-md-3 boxPlaylist  shadow p-2 m-5">
+                        @if (item.videoImg) {
+                            <img [src]='item.videoImg' alt="" class="imgVideo">
+                        }
+                        @else {
+                            <img src='https://cdn-icons-png.flaticon.com/512/4673/4673374.png' alt="" class="imgVideo ">
+                        }
+                        <div class="d-flex mt-2 mb-2 align-items-center">
+                            <div>
+                                <img [src]="item.profilePicture" [alt]="item.profilePicture" class="imgProfile">
+                            </div>
+                            <div class="m-2">
+                                <div class="fs-4 fw-bold  mt-3">{{item.namePlaylist}}</div>
+                                <div class="fs-6 fw-bold text-secondary mt-3">{{item.userName}}</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+    </div>
+</div>

@@ -12,9 +12,15 @@ export interface CurrentUser {
     userName: string,
     country: string,
     email: string,
-    profilePicture: string
+    profilePicture: string,
 }
-
+export interface Profile {
+    userName: string,
+    country: string,
+    dateOfBirth:string,
+    profilePicture: string,
+    backgroundUser:string
+}
 export interface VerifyUser {
     email: string,
     otp: string
@@ -46,4 +52,10 @@ export interface ResultLogin {
     Token:string,
     Role:string,
     message: string
+}
+
+export interface CountsOfStatistics {
+    userCount:string,
+    videoCount:string,
+    playlistCount: string
 }

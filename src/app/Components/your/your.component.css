@@ -1,0 +1,36 @@
+.boxCurd{
+    margin: 5rem 0rem;
+}
+
+.myVideo{
+    direction: rtl;
+}
+.box{
+    width: 310px;
+}
+.imgVideo{
+    width: 100%;
+}
+.title{
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+a{
+    text-decoration: none;
+}
+.items,.row{
+    direction: rtl;
+}
+.boxPlaylist{
+    width: 310px;
+    border-top: 5px solid red;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.imgProfile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

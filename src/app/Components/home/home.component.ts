@@ -1,12 +1,48 @@
 import { Component } from '@angular/core';
+import { CurrentUser } from '../../Models/user';
+import { UserService } from '../../Services/user.service';
+import { StatisticsComponent } from '../statistics/statistics.component';
+import { VideoService } from '../../Services/video.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [StatisticsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  videos:any=[]
+  user: CurrentUser={
+    role: '',
+    userName: '',
+    country: '',
+    email: '',
+    profilePicture: '',
+    id:''
+  };
 
+  constructor(private userService: UserService,private videoService: VideoService,    
+    private  router: Router,
+    private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  // Method to load categories
+  loadCategories(): void {
+    this.userService.currentUser().subscribe((data) => {
+      this.user = data;
+      this.videoService.getVideos().subscribe(
+        (data)=>{
+          this.videos=data
+        }
+      )
+    });
+  }
+  openVideo(videoId:string){
+     this.router.navigate([`/home/video/${videoId}`])
+  }
 }

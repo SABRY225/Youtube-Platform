@@ -1,0 +1,26 @@
+.myVideo{
+    direction: rtl;
+}
+.imgUser{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.box{
+    width: 310px;
+}
+.imgVideo{
+    width: 100%;
+}
+.title{
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.View{
+    direction: rtl;
+}
+.contentBody{
+    color: #3333337d;
+}

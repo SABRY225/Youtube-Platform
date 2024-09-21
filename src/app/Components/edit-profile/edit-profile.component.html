@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="form-container">
+            <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                <div class="mb-3">
+                    <label for="userName" class="form-label">UserName</label>
+                    <input type="text" class="form-control" name="userName" id="userName" value={{user.userName}} required [(ngModel)]="user.userName">
+                </div>
+                <div class="mb-3">
+                    <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" value={{user.dateOfBirth}} required [(ngModel)]="user.dateOfBirth">
+                </div>
+                <div class="mb-3">
+                    <label for="profilePicture" class="form-label">Profile Picture</label>
+                    <input type="text" class="form-control" name="profilePicture" id="profilePicture" placeholder="Enter profile picture URL" value={{user.profilePicture}} required [(ngModel)]="user.profilePicture">
+                </div>
+                <div class="mb-3">
+                    <label for="backgroundUser" class="form-label">Profile Background</label>
+                    <input type="text" class="form-control" name="backgroundUser" id="backgroundUser" placeholder="Enter background URL" value={{user.backgroundUser}} required [(ngModel)]="user.backgroundUser">
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <select class="form-select" name="country" id="country" required [(ngModel)]="user.country">
+                            <option value={{user.country}}>{{user.country}}</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Syria">Syria</option>
+                        </select>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Save Changes" class="btn btn-dark">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

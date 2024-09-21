@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { SidebarReightComponent } from '../../Components/sidebar-reight/sidebar-reight.component';
 import { CurrentUser, User } from '../../Models/user';
 import { UserService } from '../../Services/user.service';
+import { FooterComponent } from '../../Components/footer/footer.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [SidebarComponent,RouterModule,SidebarReightComponent],
+  imports: [SidebarComponent,RouterModule,FooterComponent,SidebarReightComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

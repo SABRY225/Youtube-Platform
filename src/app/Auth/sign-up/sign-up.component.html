@@ -1,28 +1,41 @@
-<div class="container auth">
+<div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center ">
-        <div class="col-md-6 row border p-5 rounded shadow">
-            <div class="col-sm-12 col-md-12 text-bold text-danger fs-2 m-2">
+        <div class="col-sm-12 col-lg-6 mt-5 border p-4 rounded shadow order-2">
                 <form class="text-start" (ngSubmit)="onSubmit()" #registerForm="ngForm">
-                    <label for="userName" class="mt-3 fs-5 fw-bold">UserName</label>
+                    <label for="userName" class="mb-3 fs-5 fw-bold">UserName</label>
                     <input type="text" name="userName"  class="form-control" required [(ngModel)]="user.userName">
-                    <label for="email" class="mt-3 fs-5 fw-bold">Email User</label>
+                    <label for="email" class="mt-3 mb-3 fs-5 fw-bold">Email User</label>
                     <input type="email" name="email"  class="form-control" required [(ngModel)]="user.email">
-                    <label for="password" class="mt-3 fs-5 fw-bold">Password User</label>
+                    <label for="password" class="mt-3 mb-3 fs-5 fw-bold">Password User</label>
                     <input type="password" name="password" class="form-control" required [(ngModel)]="user.password ">
-                    <label for="county" class="mt-3 fs-5 fw-bold" >County</label>
-                    <input type="text" name="county" class="form-control" required [(ngModel)]="user.country">
-                    <label for="dateOfBrith" class="mt-3 fs-5 fw-bold">Date Of Brith</label>
+                    <label for="country" class="mt-3 mb-3 fs-5 fw-bold ">Country</label>
+                    <select class="form-control" name="country" id="country" required [(ngModel)]="user.country">
+                            <option value={{user.country}}>{{user.country}}</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Syria">Syria</option>
+                        </select>
+                    <label for="dateOfBrith" class="mt-3 mb-3 fs-5 fw-bold">Date Of Brith</label>
                     <input type="date" name="dateOfBrith" class="form-control" required [(ngModel)]="user.dateOfBirth">
 
                     <input type="submit" value="send">
                     
                 </form>
-            </div>
         </div>
-        <div class="col-md-6 row  d-flext align-items-center">
-            <div class="col-sm-12 col-md-12 text-bold text-danger fs-2 logo">
-                <img src="logo.png" alt="" width="70%">
-            </div>
+        <div class="col-sm-12 col-lg-6 order-1 text-center order-1">
+            <img src="logo.png" alt="" width="70%">
         </div>
     </div>
 </div>

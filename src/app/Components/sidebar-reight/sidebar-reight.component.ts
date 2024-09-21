@@ -34,4 +34,7 @@ export class SidebarReightComponent {
       
     });
   }
+  logOut():void{
+    localStorage.clear()
+  }
 }

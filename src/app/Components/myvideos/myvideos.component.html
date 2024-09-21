@@ -1,0 +1,83 @@
+<div class=" mb-5 d-flex justify-content-start flex-wrap myVideo">
+    @for (item of video; track $index) {
+    <div class="col-sm-12 col-md-3 box border shadow p-1 m-1">
+        <img [src]='item.backImgVideoUrl' alt="" class="imgVideo">
+        <div class="d-flex">
+            <div class="title mt-1">{{item.title}}</div>
+            <div class="text-start">
+                <button mat-button [matMenuTriggerFor]="menu">
+                    <img src="menu.png" alt="" width="15px">
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item class="d-flex align-items-center" (click)="editVideo(item.id)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="24" height="24" fill="url(#pattern0_112_235)"/>
+                        <defs>
+                        <pattern id="pattern0_112_235" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_112_235" transform="scale(0.0104167)"/>
+                        </pattern>
+                        <image id="image0_112_235" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR4nO2dz26OURDGfyQaKQtLFjZICGXlCljbahOJWxCuwIZYUK3qwtbSFUgQVlwA1hIrNv5UE5Fi5Mh5N9Iq+U47M+95fsnszzzPzJzv/c7J+4IQQgghhBBCCCGEEBszAywAr4BVwDqP1arFQtVmy5gCloEfAZK2oPEdWKpaNRf/SYAELUk8bm3CcoCkLFncaSX+TG0t74QsWRTNTrQwYDFAMpY05lsY8DpAIpY0XrYw4EuARCxprLQwwDsJSx4yABngXoWmDvAXwjSC/MUwh9AegAxwr0JTB/gLYRpB/mKYQ2gPQAa4V6GpA/yFMI2gfxPhAzAH7AYO1SO+tQBCdrMHzK6zhpPA0wBidmHA9F/Wch54G0DUURuwGcWgq8DXAOJ2acDAQeB+AIG7NWDgTL0Y5S10twYUdgGXgE8BBO/SgIH9wL1gt/cmJt2CgdPA8wDid2tAYQdwEXgnA3wMGNgH3AC+qQN8DBg4CjzM2NHpFrwJ54A3mfIZmwHD0/S1bbp0PDFjNGDgcoZ8xmzAnm14ZpiYsRvwM3o+YzbgSoZ8xroJX9cmjIsB+hnq1AHH9CDm91fEouPB/sSkW3BlZ/0z7r2T8Nb739EvnIXv0oADOpDxPZL8HKDiu+uAszqU9zHgMPAgQIV31wHTupjldzVxVlcTt74D5tYR/hTwLMA46WIEfQQuAHuBI8BdXU/3ryJLHOk6wEYWMgAZ4F6Fpg7wF8I0gvzFMIfQHoAMcK9CUwf4C2EaQf5imENoD0AGuFehZe6AlQBJWNIoR6QTo1cX4/vq4tsBKsmSxs0WBpRXsOv19fy3+EWz4zRiKUA1WbIo35RpxlT9LId3UpYkHtW7SrQ2oXyWQ+OIDYVfq5XfXPw/94T5usPr2wL81qBocavlzBdCCCGEEEIIIYQQjI5fc/0YrfaLSC4AAAAASUVORK5CYII="/>
+                        </defs>
+                        </svg>
+                        <span class="m-2">Edit Video</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteVideo(item.id)">
+                        <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="24" height="28" fill="url(#pattern0_414_3)"/>
+                            <defs>
+                            <pattern id="pattern0_414_3" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_414_3" transform="matrix(0.0116667 0 0 0.01 -0.0833333 0)"/>
+                            </pattern>
+                            <image id="image0_414_3" width="100" height="100" xlink:href="data:image/png;base64,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"/>
+                            </defs>
+                            </svg>                            
+                            <span class="m-2">Delete Video</span>
+                    </button>
+                    <button mat-menu-item (click)="openModal(item.id)">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="20" height="20" fill="url(#pattern0_115_494)"/>
+                            <defs>
+                            <pattern id="pattern0_115_494" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_115_494" transform="scale(0.015625)"/>
+                            </pattern>
+                            <image id="image0_115_494" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEf0lEQVR4nO2bbWiWZRTHf1gLXya0RMh8q22tCMqwdFpisQLBl6xPhutzG6mtTSXfBn3sc5AxFaFlBX2ISiN0aCxXQ6eGgS8xDRFEP1k213wZLg6cRw4Xz8v9PPfrc+/5wwXj3rmuc+7z3Odc55zrXFBBBRWEjAeBRUAH0AUcAQaBa8C/Oq7ps8NK0w406tyyRDXQDOwHbgJjJY4h4Adgra6ZeNQDnwHDPl461xBF7gTqSCBmA18BozmEPw/sAlqA1/QlaoAqHTX6TP7XCuwG/syxlvDYB8wiAXgI2J7jFz8FbFTllIo5wCbg9xxfxDZVYCyYC/zmCHVP7f71EPgtAb7J8pUNqOlFireAG44gx4GFEfBepC9tef8DvElEaHV+hRFgPTAhKgGU1wblbX2D+JhQsdXR/FngWeLDPHWwViaRMRS0OIz6gWnED9lBeh3Z5OsI3OZHDQMJTiaSHExUmaw5rA5q8TrH4fUm7OUzEJl+cRzjE0Hs8wOOzT9MciHmcM7Ie8xvnLDDLPZfzA6vGMc4EoRTnONEeO9RPtjgJFQlhc1fO59SlPu8X4isJ4z8XxS7wJPG69+LKMILGotV9syuUFvM5C6jve8pX/xo3uNTr5OmOrYvSUgYaAD+Ai7qFxcGXnGyxyleJr1jJkkaGha2RRG+AqcNn7e9TDhgJmwOUbCPDB/5O4r85btCxFVODU9y/nJXQJ3hc6NQoXWxIZYqLSlQgOCS4fViPsIOQ7g3RQr43PBqy0e4yxBKkSMtCvjA8JLKck78bAiXpUgBKwyvnnyEg4bwqRQp4BmnRJ8TVw3hoz6DHNlCP8wzepxfJR/tZl2zVDxmeF3JRzhkCCUiLBUXs9Tx/Y4LPuSZataRs8icGBrvCrhqCGf4YCixfSfwcZ7RZ3j1FaDt9JkveDaBQUP4NOPQCR4xhMtTpICVhtchr3WAtvEYCLUbwu4UKaDb8Hq/0MHjmI7LKU2GXigmHa5PgQLqnXT4gUIT9psJci5Q7gqwladvvUxoNhPOpKAk9ofhs8bLhGqnKCp9O2GgQaO7CyEWRV817yFR7mSvE3eaiQcpX/xk3uOTYutoo2byUsoPL5uDkbulnBR/aRRw2ov3TBBE1pNGfimJFY3ZzpYo7WrlgjbH9mcG4alvAwtIPp4Hbhm5paBSMqr0ZDizmOT500kuHnE6TPuDaKSs1XaTzKIDCW1cngQcNXL+HUSLTAarnV2hx+tBY4xNUquCZvJuls7Q6QnpC7LNUaGeaWx1GEkFaT7x4TmnKSrssPp+w6Q1h1u67UTdKrsuS6usfKWR4A3HMY5pT44croaNRjW/McfhBW7zXrrIfs1Svu7RMDRozNfKjtsufzzOWyRVGixluxd0Qk+b/dzsmKVruO3xmQhvS5wXJlxB9+W5MnNOC65io03A4+q9J+io0WdNStOVxblZW+/2E96GiboQL00Na5peVLtbXKjWZqsDPq/N3dQApzmh0acniI2+pNnkHu02l5ziOnBHk6zr+qxXb4xt0h0lEfZdQQWkF/8DWbR4LDNr+BQAAAAASUVORK5CYII="/>
+                            </defs>
+                            </svg>
+                        <span class="m-2"> Add Video To PlayList</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="mt-2 text-center">
+            <a [routerLink]="['/home/video', item.id]" class="fs-6">
+                Display Video
+            </a>
+        </div>
+    </div>
+    }
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop2" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Assign video to playlist</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeDisplay()" ></button>
+            </div>
+            <div class="modal-body">
+               @for (item of Playlists; track $index) {
+                <button type="submit" class="btn btn-primary fw-bold fs-5 m-2" (click)="assignVideo(item.id)">{{ item.name }}</button>
+               }
+               @if (data.success) {
+                <div class="text-center m-2 fs-5 text-success">{{data.message}}</div>
+               }
+               @else {
+                <div class="text-center m-2 fs-5 text-danger">{{data.message}}</div>
+               }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeDisplay()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

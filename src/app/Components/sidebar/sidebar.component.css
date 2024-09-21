@@ -20,3 +20,6 @@ cursor: pointer;
     margin-left: 10rem;
     margin-right: 10rem;
 }
+.imgUser{
+    border-radius: 50%;
+}

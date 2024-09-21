@@ -1,0 +1,15 @@
+.imgBackground{
+    width: 100%;
+    height: 400px;
+}
+.imgUser{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+hr{
+    color: red;
+}
+.add{
+    margin-left: 0.5rem;
+}

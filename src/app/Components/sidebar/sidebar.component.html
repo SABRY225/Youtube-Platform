@@ -1,19 +1,19 @@
 <div class="row p-3 text-center">
     @if (user.role=='Admin') {
         <div class="col-md-10 d-flex align-items-center">
-            <img src="user.png" alt="" width="50px">
+            <img [src]="user.profilePicture" alt="" width="50px" class="imgUser">
             <div class="m-1 fs-5 fw-bold">{{user.userName}}</div>
         </div> 
     }
     @if (user.role=='User') {
         <div class="col-md-3 d-flex align-items-center">
-            <a routerLink="/home/profile"><img src="user.png" alt="" width="50px"></a>  
+            <a routerLink="/home/profile"><img [src]="user.profilePicture" alt="" width="50px" class="imgUser"></a>  
             <div class="m-1 fs-5 fw-bold">{{user.userName}}</div>
         </div> 
     }
     @if (user.role !=='User' && user.role!=='Admin'){
         <div class="col-md-2">
-            <a class="btnSign" routerLink="/auth">Sign In</a>
+            <a class="btn  btn-dark text-danger" routerLink="/auth">Sign In</a>
         </div>
     }
     @if (user.role!=='Admin') {

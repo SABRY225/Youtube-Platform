@@ -29,8 +29,10 @@ export class VerifyComponent {
 
   onSubmit():void {
     this.verifyUser.email= this.route.snapshot.params['email'];
+    console.log(this.verifyUser);
     this.authService.verify(this.verifyUser).subscribe((data) => {
       this.data=data
+      console.log(data);
       if (this.data.success) {
         this.router.navigate([`/auth`]);
       }

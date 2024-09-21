@@ -29,7 +29,7 @@ export class SignUpComponent {
   };
 
     
-    constructor(private authService: AuthService,private router: Router,
+  constructor(private authService: AuthService,private router: Router,
       private route: ActivatedRoute) {}
 
   onSubmit():void {
