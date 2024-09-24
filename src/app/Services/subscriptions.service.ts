@@ -12,9 +12,32 @@ export class SubscriptionsService {
   constructor(private http:HttpClient) { }
 
   getSubscriptions(user:CurrentUser): Observable<any> {
-    console.log(user);
-    
     return this.http.get(this.apiUrl+user.id,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+
+  checkSubscription(userId:string,channelId:string): Observable<any> {
+    return this.http.get(this.apiUrl+userId+'/'+channelId,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  subscribe(data:any): Observable<any> {
+    return this.http.post(this.apiUrl,data,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  deleteSubscription(userId:string,channelId:string): Observable<any> {
+    return this.http.delete(this.apiUrl+userId+'/'+channelId,{
       headers:{
         'Authorization':`Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'

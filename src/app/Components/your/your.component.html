@@ -11,7 +11,7 @@
                 </div>
             }@else {
                 @for (item of videos; track $index) {
-                    <div class="col-sm-12 col-md-3 box border shadow p-1 m-5 items">
+                    <div class="col-sm-12 col-md-3 box border shadow p-1 m-5 items" (click)="openVideo(item.VideoId)">
                         <img [src]='item.backImgVideoUrl' alt="" class="imgVideo">
                         <div class="d-flex">
                             <div class="title mt-1">{{item.title}}</div>
@@ -32,7 +32,7 @@
                 </div>
             }@else {
                 @for (item of playlists; track $index) {
-                    <div  class="col-sm-12 col-md-3 boxPlaylist  shadow p-2 m-5">
+                    <div  class="col-sm-12 col-md-3 boxPlaylist  shadow p-2 m-5" (click)="openPlaylist(item.PlaylistId)">
                         @if (item.videoImg) {
                             <img [src]='item.videoImg' alt="" class="imgVideo">
                         }

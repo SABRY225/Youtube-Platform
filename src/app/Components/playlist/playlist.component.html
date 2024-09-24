@@ -1,1 +1,52 @@
-<p>playlist works!</p>
+<div class="d-flex">
+    <div class="col-md-8">
+        @for (item of Playlist.videos; track $index) {
+        <div class="col-md-12 d-flex align-items-center m-3" (click)="openVideo(item.id)">
+            <div class="col-md-8">
+                <div class="m-2 fs-6 fw-bold title">{{item.title}}</div>
+                <div class="m-2 fs-6 title">{{item.views}} مشاهدة</div>
+            </div>
+            <div class="col-md-3">
+                <img [src]="item.backImgVideoUrl" [alt]="item.backImgVideoUrl" class="w-100">
+            </div>
+            <div class="col-md-1 d-flex justify-content-center">
+               <div class="circle"></div>
+            </div>
+        </div>
+        }
+    </div>
+    <div class="col-md-4 sidebar">
+        <div class="col-md-12 ">
+            <img [src]="Playlist.videos[0].backImgVideoUrl" alt="" class="w-100 rounded">
+        </div>
+        <div class="col-md-12 ">
+            <div class="col-md-11 fw-bold fs-3 m-4 d-flex justify-content-end align-items-center">
+                <div>{{Playlist.name}}</div>
+            </div>
+            <div class="col-md-11  fs-4 m-4 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <div class="m-2">
+                        @if(checksavePlaylist.status=='saved'){
+                            <img src="save.png" alt="share" width="40px" mat-raised-button matTooltip="Delete Seved" (click)="deleteSavePlaylist()">
+                        }@else{
+                            <img src="notsave.png" alt="share" width="40px" mat-raised-button matTooltip="Seve Playlist" (click)="savePlaylist()">    
+                        }
+
+                    </div>
+                    <div class="m-2" (click)="copyUrl()">
+                        <img src="share.png" alt="share" width="40px" mat-raised-button matTooltip="Share URL Playlist">
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="m-2">{{Playlist.nameUser}}</div>
+                    <div>
+                        <img [src]="Playlist.profilePicture" [alt]="Playlist.profilePicture" width="40px"
+                            class="rounded">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

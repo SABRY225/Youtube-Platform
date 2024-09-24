@@ -13,12 +13,13 @@ import { AuthService } from '../../Services/auth.service';
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
-  data: ResultLogin = {
+  data: any = {
     Token:'',
     Role:'',
-    message: ''
+    message: '',
+    success:false
   };
-  
+  errMessage:string=''
   user: UserLogin = {
     email: '',
     password: ''
@@ -30,12 +31,14 @@ export class SignInComponent {
     onSubmit():void {
       this.authService.login(this.user).subscribe((data) => {
         this.data=data
-        console.log(this.data.Token);
-        
-        if (this.data.Role=='Admin' || this.data.Role=='User') {
+        console.log(this.data);
+        if (this.data.success) {
           this.router.navigate([`/home`]);
           localStorage.setItem('token',this.data.Token)
+        }else{
+         this.errMessage=this.data.message
         }
+
       });
     }
 

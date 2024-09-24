@@ -16,6 +16,8 @@ import { EditProfileComponent } from './Components/edit-profile/edit-profile.com
 import { VideoComponent } from './Components/video/video.component';
 import { PlaylistComponent } from './Components/playlist/playlist.component';
 import { VideoPageComponent } from './Pages/video-page/video-page.component';
+import { SearchComponent } from './Components/search/search.component';
+import { EditplaylistComponent } from './Components/editplaylist/editplaylist.component';
 
 export const routes: Routes = [
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -23,13 +25,16 @@ export const routes: Routes = [
         {path:'',component:HomeComponent},
         {path:'subscribes',component:SubscribesComponent},
         {path:'profile',component:ProfileComponent},
+        {path:'profile/:userId',component:ProfileComponent},
         {path:'your',component:YourComponent},
         {path:'users',component:UsersComponent},
         {path:'editProfile',component:EditProfileComponent},
         {path:'video',component:VideoComponent},
-        {path:'PlayList/:idplaylist',component:PlaylistComponent},
+        {path:'playlist/:playlistId',component:PlaylistComponent},
+        {path:'editplaylist/:playlistId',component:EditplaylistComponent},
         {path:'video/:videoId',component:VideoPageComponent},
         {path:'editVideo/:videoId',component:VideoComponent},
+        {path:':searchquery',component:SearchComponent},
         { path: '**', component: PageNotFoundComponent }, 
     ]},
     {path:'auth',component:AppPageComponent,children:[

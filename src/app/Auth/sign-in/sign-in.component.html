@@ -1,11 +1,20 @@
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-sm-12 col-lg-6 mt-5 border p-4 rounded shadow order-2">
+            <div class="text-center fs-4 text-danger">{{errMessage}}</div>
                 <form class="text-center" (ngSubmit)="onSubmit()" #registerForm="ngForm">
                     <label for="email"></label>
+                    @if (data.type=='email') {
+                        <input type="email" name="email" placeholder="Enter Your Email" class="form-control" required [(ngModel)]="user.email" style="border: 2px solid red;">
+                    }@else {
                     <input type="email" name="email" placeholder="Enter Your Email" class="form-control" required [(ngModel)]="user.email">
+                    }
                     <label for="password"></label>
+                    @if (data.type=='password'  ||  data.message=='Incorrect password' ) {
+                        <input type="password" name="password" placeholder="Enter Your Password" class="form-control" required [(ngModel)]="user.password " style="border: 2px solid red;">
+                    }@else {
                     <input type="password" name="password" placeholder="Enter Your Password" class="form-control" required [(ngModel)]="user.password ">
+                    }
                     <div class="text-start mt-3" >
                         <a class="col-sm-12 col-md-12 text-bold text-danger fs-6" routerLink="/auth/sendOTP">Forget Password Account ?</a>
                     </div>

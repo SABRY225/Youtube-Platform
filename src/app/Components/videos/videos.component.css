@@ -1,0 +1,18 @@
+.box{
+    width: 310px;
+}
+.imgVideo{
+    width: 80%;
+}
+.title{
+    direction: rtl;
+    white-space: nowrap; 
+    width: 250px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.contentBody{
+    direction: rtl;    
+    color: #3333337d;
+}

@@ -28,6 +28,15 @@ export class PlaylistService {
       }
     });
   }
+  
+  getPlaylist(playlistId:string): Observable<any> {
+    return this.http.get(this.apiUrl+playlistId,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
 
   deletePlaylist(playlistId:string): Observable<any> {
     return this.http.delete(this.apiUrl+playlistId,{
@@ -38,7 +47,7 @@ export class PlaylistService {
     });
   }
 
-  editPlaylist(playlistId:string,playlist:Playlist): Observable<any> {
+  editPlaylist(playlistId:string,playlist:any): Observable<any> {
     return this.http.put(this.apiUrl+playlistId,playlist,{
       headers:{
         'Authorization':`Bearer ${localStorage.getItem('token')}`,

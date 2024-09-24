@@ -32,7 +32,6 @@ export class MyplaylistComponent {
     private userService: UserService,
     private playlistService: PlaylistService,
     private router: Router,
-    private route: ActivatedRoute,
     private snackBar: MatSnackBar  // Inject MatSnackBar
   ) { }
   ngOnInit(): void {
@@ -51,7 +50,7 @@ export class MyplaylistComponent {
     });
   }
 
-  deleteVideo(playlistId:string){
+  deletePlaylist(playlistId:string){
     this.playlistService.deletePlaylist(playlistId).subscribe((data)=>{
       this.data=data
       this.Playlist = this.Playlist.filter(playlist => playlist.id !== playlistId);
@@ -61,6 +60,9 @@ export class MyplaylistComponent {
         this.openSnackBar(this.data.message, 'Retry');  // Show failure toast
       }
     })
+  }
+  editPlaylist(playlistId:string){
+    this.router.navigate([`/home/editplaylist/${playlistId}`])
   }
     // Toast notification method
     openSnackBar(message: string, action: string): void {

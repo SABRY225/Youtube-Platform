@@ -90,6 +90,12 @@ export class MyvideosComponent {
   closeDisplay() {
     this.isDisplay = false
   }
+  openVideo(videoId:string){
+    this.videoService.addView(videoId).subscribe(data=>{
+    this.data=data
+    this.router.navigate([`/home/video/${videoId}`])
+    })
+  }
   // Toast notification method
   openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {

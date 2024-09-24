@@ -10,11 +10,12 @@ import { Playlist } from '../../Models/playlist';
 import { MyplaylistComponent } from '../myplaylist/myplaylist.component';
 import { MyvideosComponent } from '../myvideos/myvideos.component';
 declare var bootstrap: any;
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterModule, FormsModule,MyplaylistComponent,MyvideosComponent],
+  imports: [RouterModule, FormsModule,MyplaylistComponent,MyvideosComponent,MatTooltipModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

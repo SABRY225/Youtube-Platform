@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurrentUser } from '../../Models/user';
+import { CurrentUser, ResultMessage } from '../../Models/user';
 import { UserService } from '../../Services/user.service';
 import { StatisticsComponent } from '../statistics/statistics.component';
 import { VideoService } from '../../Services/video.service';
@@ -22,7 +22,10 @@ export class HomeComponent {
     profilePicture: '',
     id:''
   };
-
+  data: ResultMessage = {
+    message: '',
+    success: false
+  };
   constructor(private userService: UserService,private videoService: VideoService,    
     private  router: Router,
     private route: ActivatedRoute) {}
@@ -35,6 +38,8 @@ export class HomeComponent {
   loadCategories(): void {
     this.userService.currentUser().subscribe((data) => {
       this.user = data;
+      console.log('data',data);
+      
       this.videoService.getVideos().subscribe(
         (data)=>{
           this.videos=data
@@ -43,6 +48,9 @@ export class HomeComponent {
     });
   }
   openVideo(videoId:string){
-     this.router.navigate([`/home/video/${videoId}`])
+    this.videoService.addView(videoId).subscribe(data=>{
+    this.data=data
+    this.router.navigate([`/home/video/${videoId}`])
+    })
   }
 }

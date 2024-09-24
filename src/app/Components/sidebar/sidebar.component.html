@@ -1,30 +1,44 @@
-<div class="row p-3 text-center">
+<div class="navbar row p-3 d-flex align-items-center justify-content-between">
     @if (user.role=='Admin') {
-        <div class="col-md-10 d-flex align-items-center">
+        <div class="col-md-10 d-flex align-items-center admin">
             <img [src]="user.profilePicture" alt="" width="50px" class="imgUser">
             <div class="m-1 fs-5 fw-bold">{{user.userName}}</div>
         </div> 
     }
     @if (user.role=='User') {
-        <div class="col-md-3 d-flex align-items-center">
-            <a routerLink="/home/profile"><img [src]="user.profilePicture" alt="" width="50px" class="imgUser"></a>  
-            <div class="m-1 fs-5 fw-bold">{{user.userName}}</div>
+        <div class="col-md-3 d-flex align-items-center user">
+            @if (user.profilePicture !== 'false') {
+                <a routerLink="/home/profile">
+                    <img [src]="user.profilePicture" [alt]="user.profilePicture" width="50px" class="imgUser user">
+                </a>  
+            } @else {
+                <a routerLink="/home/profile" >
+                    <img src="user.png" alt="user" width="50px" class="imgUser user">
+                </a>  
+            }
+            <div class="m-1 fs-5 fw-bold user">{{user.userName}}</div>
         </div> 
     }
-    @if (user.role !=='User' && user.role!=='Admin'){
-        <div class="col-md-2">
-            <a class="btn  btn-dark text-danger" routerLink="/auth">Sign In</a>
+    @if (user.role !=='User' && user.role!=='Admin') {
+        <div class="col-md-2 user">
+            <a class="btn btn-dark text-light m-1" routerLink="/auth">Sign In</a>
+            <a class="btn btn-danger text-light" routerLink="/auth/signUp">Sign Up</a>
         </div>
     }
     @if (user.role!=='Admin') {
-    <div class="col-md-7 search">
-        <form >
-            <input type="search" class="form-control">
-        </form>
-    </div>        
+        <div class="col-md-7 user  ">
+            <form (ngSubmit)="onSearch()" class="d-flex flex-grow-1">
+                <input type="search" [(ngModel)]="searchQuery" name="search" class="form-control search" required>
+                <input type="submit" value="search" class="btn btn-dark text-light">
+            </form>
+        </div>        
     }
-
-    <div class="col-md-2">
-        <img src="logo.png" alt="" width="60%">
+    <div class="col-md-12 col-lg-2 layout">
+        <div class="logo order-2" (click)="openHome()">
+            <img src="logo.png" alt="" >
+        </div>
+        <div class="dorpdown logo-2 order-1" (click)="openHome()">
+            <img src="menulayout.png">
+        </div>
     </div>
 </div>

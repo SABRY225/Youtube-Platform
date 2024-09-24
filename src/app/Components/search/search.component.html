@@ -1,0 +1,61 @@
+<div class="col-md-12 justify-content-between">
+    <div>
+        <button class="btn m-2" [style.background]="colorBtnPlaylist" style="color:#fff" (click)="displayPlaylist()">Playlists</button>
+        <button class="btn m-2" [style.background]="colorBtnUser" (click)="displayUser()" style="color:#fff">Users</button>
+        <button class="btn m-2" [style.background]="colorBtnVideo" (click)="displayVideo()" style="color:#fff">Videos</button>
+    </div>
+</div>
+@if (isDisplayUserScreen) {
+    <div class="row d-flex justify-content-end">
+        @for (item of users; track $index) {
+            <div class="col-sm-6 p-1 m-1 rounded" (click)="openUser(item.id)">
+                    <div class="d-flex align-items-center">
+                        <div class="fs-6 title m-3">{{item.userName}}</div>
+                        <img [src]='item.profilePicture' alt="" class="imgProfile">
+                    </div>
+            </div>
+            }
+    </div>
+}
+@if (isDisplayPlaylistScreen) {
+    <div class="row d-flex justify-content-end">
+        @for (item of playlists; track $index) {
+            <div class="col-sm-6 p-2 m-1 d-flex justify-content-end align-items-center " (click)="openPlaylist(item.playlistId)">
+                <div class="m-3">
+                    <div class="fs-3 fw-bold  mt-3">{{item.namePlaylist}}</div>
+                    <div class="fs-6 text-secondary fw-bold mt-3 d-flex justify-content-end align-items-center">
+                        <div class="m-2">{{item.userName}}</div>
+                        <div><img src="{{item.profilePicture}}" alt="{{item.profilePicture}}" class="rounded" width="30px"></div>
+                    </div>
+                </div>
+                @if (item.videoImg) {
+                    <img [src]='item.videoImg' alt="" class="imgVideo box">
+                }
+                @else {
+                    <img src='https://cdn-icons-png.flaticon.com/512/4673/4673374.png' alt="" class="imgVideo ">
+                }
+            </div>
+            }
+    </div>
+     
+ }
+ @if (isDisplayVideoScreen) {
+    <div class="row d-flex justify-content-end">
+        @for (item of videos; track $index) {
+            <div class="col-sm-6 p-1 m-1 rounded" (click)="openVideo(item.id)">
+                <div class="card-body mt-1">
+                    <div class="d-flex align-items-center">
+                        <div >
+                            <div class="m-2 title">{{item.title}}</div>
+                            <div class="m-2 contentBody">
+                                <div class="fs-6">{{item.userName}}</div>
+                                <div class="fs-6 view"> <span>{{item.views}}</span> مشاهدة</div>
+                            </div>
+                        </div>
+                        <img [src]='item.backImgVideoUrl' alt="" class="imgVideo rounded">
+                    </div>
+                </div>
+            </div>
+            }
+    </div>
+ }

@@ -68,4 +68,11 @@ export class VideoService {
       }
     });
   }
+  addView(videoId:string):Observable<any>{
+    return this.http.put(this.apiUrl+'view/'+videoId,{},{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`
+      }
+    });
+  }
 }

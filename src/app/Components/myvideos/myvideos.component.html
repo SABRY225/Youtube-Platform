@@ -1,6 +1,6 @@
 <div class=" mb-5 d-flex justify-content-start flex-wrap myVideo">
     @for (item of video; track $index) {
-    <div class="col-sm-12 col-md-3 box border shadow p-1 m-1">
+    <div class="col-sm-12 col-md-3 box border shadow p-1 m-1" (click)="openVideo(item.id)">
         <img [src]='item.backImgVideoUrl' alt="" class="imgVideo">
         <div class="d-flex">
             <div class="title mt-1">{{item.title}}</div>
@@ -47,11 +47,6 @@
                     </button>
                 </mat-menu>
             </div>
-        </div>
-        <div class="mt-2 text-center">
-            <a [routerLink]="['/home/video', item.id]" class="fs-6">
-                Display Video
-            </a>
         </div>
     </div>
     }
