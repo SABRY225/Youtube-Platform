@@ -48,7 +48,7 @@ export class SidebarReightComponent {
     if (link=='/') {
     this.router.navigate([`/auth`])
     }
-    if (link=='home') {
+    else if (link=='home') {
     this.router.navigate([`/${link}`])
     }else{
       this.router.navigate([`/home/${link}`])

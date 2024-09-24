@@ -20,6 +20,15 @@ export class UserService {
     });
   }
   
+  getUserById(userId:string): Observable<any> {
+    return this.http.get(this.apiUrl+userId,{
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+  
   getUsers(): Observable<any> {
     return this.http.get(this.apiUrl,{
       headers:{

@@ -2,8 +2,12 @@
     @if(Subscriptions.length>0){
         <div class="row d-flex justify-content-center">
             @for (item of Subscriptions; track $index) {
-                <div class="col-md-3 d-flex align-items-center">
-                    <div><img src={{item.profilePicture}} alt=""></div>
+                <div class="col-md-3 d-flex align-items-center m-2" (click)="openProfile(item.id)">
+                    @if (item.profilePicture!=='false') {
+                        <div><img src={{item.profilePicture}} [alt]="item.profilePicture"></div>
+                    }@else {
+                        <div><img src='user.png' alt="user" width="50px" ></div>
+                    }
                     <div class="nemaUser m-2 fw-bold fs-5">{{item.userName}}</div>
                 </div>
             }

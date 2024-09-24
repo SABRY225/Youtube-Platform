@@ -1,21 +1,5 @@
-<div class="d-flex">
-    <div class="col-md-8">
-        @for (item of Playlist.videos; track $index) {
-        <div class="col-md-12 d-flex align-items-center m-3" (click)="openVideo(item.id)">
-            <div class="col-md-8">
-                <div class="m-2 fs-6 fw-bold title">{{item.title}}</div>
-                <div class="m-2 fs-6 title">{{item.views}} مشاهدة</div>
-            </div>
-            <div class="col-md-3">
-                <img [src]="item.backImgVideoUrl" [alt]="item.backImgVideoUrl" class="w-100">
-            </div>
-            <div class="col-md-1 d-flex justify-content-center">
-               <div class="circle"></div>
-            </div>
-        </div>
-        }
-    </div>
-    <div class="col-md-4 sidebar">
+<div class="d-sm-block d-md-flex playlist">
+    <div class="order-1 col-sm-12 col-md-4  sidebar">
         <div class="col-md-12 ">
             <img [src]="Playlist.videos[0].backImgVideoUrl" alt="" class="w-100 rounded">
         </div>
@@ -48,5 +32,24 @@
             </div>
         </div>
     </div>
+    <div class="order-2 col-sm-12 col-md-8 videos">
+        @for (item of Playlist.videos; track $index) {
+        <div class="col-md-12  d-md-flex align-items-center m-3 videos" (click)="openVideo(item.id)">
+            <div class="col-md-11 d-md-flex contentVideo">
+                <div class="col-md-3">
+                    <img [src]="item.backImgVideoUrl" [alt]="item.backImgVideoUrl" class="w-100">
+                </div>
+                <div class="col-md-8">
+                    <div class="m-2 fs-6 fw-bold title">{{item.title}}</div>
+                    <div class="m-2 fs-6 title">{{item.views}} مشاهدة</div>
+                </div>
+            </div>
+            <div class="d-sm-none d-md-flex col-md-1  justify-content-center">
+               <div class="circle"></div>
+            </div>
+        </div>
+        }
+    </div>
+
 </div>
 

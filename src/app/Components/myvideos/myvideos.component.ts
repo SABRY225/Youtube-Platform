@@ -43,17 +43,29 @@ export class MyvideosComponent {
     this.loadUser();
   }
   Playlists:any[]=[]
+  profileId:string=''
 
   // Method to load categories
   loadUser(): void {
+    this.profileId=this.route.snapshot.params['userId']
     this.userService.currentUser().subscribe((data) => {
       this.user = data;
-      this.videoService.getMyVideo(this.user.id).subscribe((data) => {
-        this.video = data;
-      });
-      this.playlistService.getMyPlaylist(this.user.id).subscribe((data) => {
-        this.Playlists = data;        
-      });
+      if (this.profileId !==undefined) {
+        this.videoService.getMyVideo(this.profileId).subscribe((data) => {
+          this.video = data;
+        });
+        this.playlistService.getMyPlaylist(this.profileId).subscribe((data) => {
+          this.Playlists = data;        
+        });
+      }else{
+        this.videoService.getMyVideo(this.user.id).subscribe((data) => {
+          this.video = data;
+        });
+        this.playlistService.getMyPlaylist(this.user.id).subscribe((data) => {
+          this.Playlists = data;        
+        });
+      }
+
     });
   }
   editVideo(videoId:string){

@@ -3,6 +3,7 @@ import { SubscriptionUser } from '../../Models/subscription';
 import { SubscriptionsService } from '../../Services/subscriptions.service';
 import { UserService } from '../../Services/user.service';
 import { CurrentUser } from '../../Models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscribes',
@@ -21,7 +22,8 @@ export class SubscribesComponent {
     profilePicture: '',
     id:''
   };
-  constructor(private SubscriptionsService: SubscriptionsService,private userService: UserService) {}
+    
+    constructor(private SubscriptionsService: SubscriptionsService,private userService: UserService,private router: Router) {}
 
   ngOnInit(): void {
     this.loadCurrentUSer();
@@ -37,6 +39,10 @@ export class SubscribesComponent {
         
       });
     });
+  }
+
+  openProfile(userId:string){
+      this.router.navigate([`/home/profile/${userId}`])
   }
 
 }

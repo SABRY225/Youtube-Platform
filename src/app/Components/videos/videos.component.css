@@ -1,6 +1,9 @@
 .box{
     width: 310px;
 }
+.Videos{
+    direction: ltr;
+}
 .imgVideo{
     width: 80%;
 }

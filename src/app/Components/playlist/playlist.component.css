@@ -1,6 +1,13 @@
+.playlist{
+    direction: rtl;
+}
 .sidebar{
     background-color: #D9D9D95E;
     height: 100vh;
+    direction: ltr;
+}
+.videos{
+    direction: ltr;
 }
 .title{
     direction: rtl;
@@ -34,4 +41,19 @@
     margin-left: -60px;
     opacity: 0;
     transition: opacity 0.3s;
+  }
+ .contentVideo{
+    direction: rtl;
+ }
+  @media (max-width: 1200px){
+    .sidebar{
+        height: auto;
+    }
+    .circle{
+    padding:0rem;
+
+    }
+    .videos{
+        margin-bottom: 8rem;
+    }
   }

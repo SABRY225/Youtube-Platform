@@ -21,7 +21,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class ProfileComponent {
   isDisplay: boolean = false;
-  user: Profile = {
+  currentUser:any=[]
+  userProfile: any = {
+    id:'',
     userName: '',
     country: '',
     profilePicture: '',
@@ -42,11 +44,20 @@ export class ProfileComponent {
   ngOnInit(): void {
     this.loadUser();
   }
-
+  profileId:string=''
   // Method to load categories
   loadUser(): void {
-    this.userService.currentUser().subscribe((data) => {
-      this.user = data;
+    this.profileId=this.route.snapshot.params['userId']
+    this.userService.currentUser().subscribe((data:any) => {
+      this.currentUser=data
+      if(this.profileId !== undefined){
+        this.userService.getUserById(this.profileId).subscribe((data:any)=>{
+         this.userProfile=data
+        })
+      }
+      else{
+        this.userProfile = data;
+      }
     });
   }
   openModal() {
@@ -68,7 +79,6 @@ export class ProfileComponent {
   colorText:string=''
   onSubmit(): void {
     if (this.playlist.name) {
-      console.log(this.playlist);
       this.playlistService.addPlaylist(this.playlist).subscribe((data) => {
         this.data = data;
         if (this.data.success) {

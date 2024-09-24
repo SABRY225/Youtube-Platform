@@ -32,21 +32,28 @@ export class MyplaylistComponent {
     private userService: UserService,
     private playlistService: PlaylistService,
     private router: Router,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar  // Inject MatSnackBar
   ) { }
   ngOnInit(): void {
     this.loadUser();
   }
-
+  profileId:string=''
   // Method to load categories
   loadUser(): void {
+    this.profileId=this.route.snapshot.params['userId']
     this.userService.currentUser().subscribe((data) => {
       this.user = data;
-      this.playlistService.getMyPlaylist(this.user.id).subscribe((data) => {
-        this.Playlist = data;
-        console.log(this.Playlist);
-        
-      });
+      if ( this.profileId !== undefined) {
+        this.playlistService.getMyPlaylist(this.profileId).subscribe((data) => {
+          this.Playlist = data;
+        });
+      }else{
+        this.playlistService.getMyPlaylist(this.user.id).subscribe((data) => {
+          this.Playlist = data;
+        });
+      }
+
     });
   }
 

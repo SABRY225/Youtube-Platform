@@ -1,5 +1,6 @@
 .boxCurd{
-    margin: 5rem 0rem;
+    margin: 2rem 0rem 8rem;
+    line-height: 1;
 }
 
 .myVideo{
@@ -22,6 +23,11 @@ a{
 }
 .items,.row{
     direction: rtl;
+    margin-bottom: 2rem;
+}
+
+.items-2{
+    margin-bottom: 5rem;
 }
 .boxPlaylist{
     width: 310px;

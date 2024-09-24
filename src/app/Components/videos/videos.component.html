@@ -1,5 +1,5 @@
 @for (item of videos; track $index) {
-<div class="col-sm-12 box p-1 m-1 rounded" (click)="openVideo(item.id)">
+<div class="col-sm-12 box p-1 m-1 rounded Videos" (click)="openVideo(item.id)">
     <div class="card-body  mt-1">
         <div class="d-flex align-items-center">
             <div >
@@ -9,7 +9,7 @@
                     <div class="fs-6 view"> <span>{{item.views}}</span> مشاهدة</div>
                 </div>
             </div>
-            <img [src]='item.backImgVideoUrl' alt="" class="imgVideo rounded">
+            <img [src]='item.backImgVideoUrl' [alt]="item.backImgVideoUrl" class="imgVideo rounded" height="145px">
         </div>
     </div>
 </div>

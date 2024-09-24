@@ -6,7 +6,7 @@
     <div class=" mb-5 d-flex justify-content-start flex-wrap">
         @for (item of videos; track $index) {
         <div class="col-sm-12 col-md-3 box border shadow p-1 m-1 rounded" (click)="openVideo(item.id)">
-            <img [src]='item.backImgVideoUrl' alt="" class="imgVideo rounded">
+            <img [src]='item.backImgVideoUrl' alt="" class="imgVideo rounded" height="145px">
             <div class="card-body  mt-1">
                 <div class="d-flex align-items-start">
                     <div>
