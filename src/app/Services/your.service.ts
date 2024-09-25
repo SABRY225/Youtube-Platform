@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root' // هذا يعني أن الخدمة ستكون متاحة في جميع أجزاء التطبيق
 })
 export class VideoService {
-  private API_URL = 'https://youtubeplatformapi-production.up.railway.app/api/save/videos';
+  private API_URL = 'http://localhost:3000/api/save/videos';
 
   constructor(private http: HttpClient) {}
 
