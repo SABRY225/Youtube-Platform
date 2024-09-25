@@ -1,1 +1,31 @@
-<p>editplaylist works!</p>
+<div class="edit-playlist-container">
+    <form [formGroup]="playlistForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name" class="fs-4 mb-4 fw-bold">Playlist Name</label>
+        <input id="name" formControlName="name" class="form-control text-center" />
+        <div *ngIf="playlistForm.get('name')?.invalid && playlistForm.get('name')?.touched">
+          Name is required.
+        </div>
+      </div>
+  
+      <div class="videos">
+        <!-- @for (item of playlistForm.value.videos; track $index)  -->
+        @for (item of playlistForm.value.videos; track item; let index = $index) {
+            <div class="d-sm-block d-md-flex justify-content-between m-2 rtl border shadow">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <img [src]="item.backImgVideoUrl" alt="Video Thumbnail" class="video-thumbnail" width="100px"/>
+                    </div>
+                    <div class="title m-2">{{item.title}}</div>
+                </div>
+            <div>
+                <img src="remove.png" alt="remove" width="30px" class="remove m-2" (click)="removeVideo(index)">
+            </div>
+            </div>
+        }
+      </div>
+  
+      <button type="submit" class="btn btn-dark saveChange fs-5" [disabled]="playlistForm.invalid">Save Change</button>
+    </form>
+  </div>
+  

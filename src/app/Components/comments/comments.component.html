@@ -25,9 +25,9 @@
     <div class="col-md-6 text-start">
         @if(commentData.counts !== 0){
             @if(!isDown){
-                <img src="down.png" alt="down" width="35px" (click)="showComment('Down')">
+                <img src="down.png" alt="down" width="35px" (click)="showComment('Down')" mat-raised-button matTooltip="more Comment">
             }@else {
-                <img src="up.png" alt="up" width="35px" (click)="showComment('Up')">
+                <img src="up.png" alt="up" width="35px" (click)="showComment('Up')" mat-raised-button matTooltip="less Comment">
             }
         }
     </div>
@@ -45,7 +45,7 @@
                                     <img src="ellipsis.png" alt="" width="15px">
                                 </button>
                                 <mat-menu #menu="matMenu">
-                                    <button mat-menu-item class="d-flex align-items-center" >
+                                    <button mat-menu-item class="d-flex align-items-center" (click)="openModal(item.id,item.content)">
                                         <img src="comment.png" alt="comment" width="24px">  
                                         <span class="m-2">Edit comment</span>
                                     </button>
@@ -71,4 +71,35 @@
             }
     }
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header ltr ">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeDisplay()" ></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center fs-5 fw-bold m-2 ">
+                   Edit Comment
+                </div>
+                <form [formGroup]="commentForm" (ngSubmit)="onEdit()" class="d-flex align-items-center ltr">
+                    <input
+                      type="text"
+                      formControlName="content"
+                      class="form-control order-1 rtl"
+                      placeholder="Add a comment"
+                      [value]="content"
+                    />
+                    <button type="submit" class="m-2" mat-raised-button matTooltip="Add Comment">
+                      <img src="comments.png" alt="comments" width="30px" />
+                    </button>
+                  </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeDisplay()">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

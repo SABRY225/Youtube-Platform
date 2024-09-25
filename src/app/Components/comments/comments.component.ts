@@ -1,17 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../../Services/video.service';
 import { UserService } from '../../Services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CurrentUser, ResultMessage } from '../../Models/user';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SaveService } from '../../Services/save.service';
-import { ChecksaveVideo } from '../../Models/category';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { SubscriptionsService } from '../../Services/subscriptions.service';
-import { CheckSubscription, SubscribeUserData } from '../../Models/subscription';
-import { LikeService } from '../../Services/like.service';
-import { CheckLike, CountsLike, LikeData } from '../../Models/like';
 import { CommentService } from '../../Services/comment.service';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,6 +12,8 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Comment } from '../../Models/comment';
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-comments',
   standalone: true,
@@ -89,7 +84,6 @@ export class CommentsComponent {
   // add comment
   onSubmit() {
     if (this.commentForm.valid) {
-      console.log('Comment Submitted:', this.commentForm.value.content);
       this.comment.content=this.commentForm.value.content
       this.commentService.createComment(this.videoId,this.comment).subscribe(data=>{
         this.data=data
@@ -109,7 +103,6 @@ export class CommentsComponent {
   }
 
   // delete comment
-
   deleteComment(commentId:string){
     this.commentService.deleteComment(commentId).subscribe(data=>{
       this.data=data
@@ -123,9 +116,42 @@ export class CommentsComponent {
       }
     })
   }
-
-
-
+  // edit comment
+  isDisplay: boolean = false;
+  commentId: string = '';
+  content:string=''
+  openModal(commentId:string,content:string) {
+    this.commentId=commentId
+    this.content=content
+    const modalElement = document.getElementById('staticBackdrop');
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+  }
+  displyAddPlaylist() {
+    this.isDisplay = true
+  }
+  closeDisplay() {
+    this.isDisplay = false
+  }
+  onEdit() {
+    if (this.commentForm.valid) {
+      this.comment.content=this.commentForm.value.content
+      this.commentService.editeComment(this.commentId,this.comment).subscribe(data=>{
+        this.data=data
+        this.closeDisplay()
+        if (this.data.success) {
+          this.openSnackBar(this.data.message, 'Close'); 
+          this.commentService.getComments(this.videoId).subscribe(data=>{
+            this.commentData=data
+           })
+        } else {
+          this.openSnackBar(this.data.message, 'Retry');  // Show failure toast
+        }
+      })
+    } else {
+      this.openSnackBar('Form is invalid', 'Retry');  // Show failure toast
+    }
+  }
       // Toast notification method
       openSnackBar(message: string, action: string): void {
         this.snackBar.open(message, action, {

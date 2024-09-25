@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-12 mt-3 d-flex justify-content-between">
         <div class="d-flex align-items-center">
-            @if (userProfile.id!==profileId) {
+            @if (currentUser.id==profileId || profileId==undefined) {
                 <div class="m-2">
                     <div (click)="openModal()">
                         <img src="plus.png" alt="plus" width="60px" mat-raised-button matTooltip="Add Video or Playlist">

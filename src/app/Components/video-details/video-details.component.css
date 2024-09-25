@@ -16,6 +16,9 @@
     direction: rtl;
     line-height: 1.5;
 }
+.linkProfile{
+    cursor: pointer;
+}
 .countLike{
     margin-right: 1rem;
 }

@@ -216,7 +216,9 @@ export class VideoDetailsComponent implements OnInit {
     })
   }
 
-
+  openProfile(channelId:string){
+    this.router.navigate([`/home/profile/${channelId}`])
+  }
 
 
 
