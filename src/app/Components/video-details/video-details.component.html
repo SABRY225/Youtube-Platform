@@ -1,4 +1,4 @@
-<div class="video-container mt-3">
+<div class="video-container mt-3 ">
     <iframe title="Youtube player" sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
         [src]="safeVideoUrl">
         <!-- Use safeVideoUrl -->
@@ -8,32 +8,34 @@
         <div class="title fs-6 mt-3 text-secondary">{{video.views}} مشاهدة </div>
     </div>
     <div>
-        <div class="profile mt-3 fs-3 row text-start">
-            <div class="col-md-9 d-flex align-items-center justify-content-end ">
-                <div class="col-md-2">
+        <div class="profile mt-3 fs-3 col-md-12 d-sm-block d-md-flex text-start video-detailes">
+            <div class="col-md-6 d-flex align-items-center justify-content-around ">
+                <div class="col-md-3">
                     @if(checksaveVideo.status=='saved'){
                         <img src="save.png" alt="share" width="40px" mat-raised-button matTooltip="Delete Seved" (click)="deleteSaveVideo()">
                     }@else if(checksaveVideo.status=='unsaved'){
                         <img src="notsave.png" alt="share" width="40px" mat-raised-button matTooltip="Seve Video" (click)="saveVideo()">    
                     }
                 </div>
-                <div class="col-md-2" (click)="copyUrl()">
+                <div class="col-md-3" (click)="copyUrl()">
                     <img src="share.png" alt="share" width="40px" mat-raised-button matTooltip="Share URL Video">
                 </div>
-                <div class="col-md-3 d-flex align-items-center">
+                <div class="col-md-3 d-flex align-items-center ">
                     @if (checkLike.Type=='Like') {
-                        <div class="mt-2 fs-3 text-secondary">{{countsLike.countLike}}</div>
-                        <div>
+                        <div class="col-md-6 mt-2 fs-3 text-secondary countLike">{{countsLike.countLike}}</div>
+                        <div class="col-md-6 fs-3">
                             <img src="isLike.png" alt="isLike" width="40px" (click)="deleteLikeUser()" mat-raised-button matTooltip="Romve Like">
                         </div>
                     }@else{
-                        <div class="mt-2 fs-3 text-secondary">{{countsLike.countLike}}</div>
-                        <div>
+                        <div class="col-md-6 mt-2 fs-3 text-secondary countLike">{{countsLike.countLike}}</div>
+                        <div class="col-md-6 fs-3">
                             <img src="like.png" alt="like" width="40px" (click)="likeUser()" mat-raised-button matTooltip="Add Like">
                         </div>
                     }
                 </div>
-                <div class="col-md-3">
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around ProfileAndSbuscribe">
+                <div class="col-md-6 d-flex align-items-center justify-content-around">
                     @if(checkSubscription.isSubscribe=='Subscribed'){
                         <button class="btn btn-outline-danger" (click)="deleteSubscribeUser()">Unsubscribe</button>
                     }@else if (checkSubscription.isSubscribe=='Unsubscribed') {
@@ -42,23 +44,24 @@
                         <div></div>
                     }
                 </div>
-            </div>
-            <div class="col-md-3 d-flex align-items-center justify-content-end">
-                <div class="m-2">
-                    {{video.channelName}}
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                    <div class="m-2">
+                        {{video.channelName}}
+                    </div>
+                    <div>
+                        @if (video.channelImg!=='false') {
+                            <img [src]="video.channelImg" [alt]="video.channelImg" width="50px">
+                        }@else {
+                            <img src="user.png" alt="channelImg" width="50px">
+                        }
+                    </div>
                 </div>
-                <div>
-                    @if (video.channelImg!=='false') {
-                        <img [src]="video.channelImg" [alt]="video.channelImg" width="50px">
-                    }@else {
-                        <img src="user.png" alt="channelImg" width="50px">
-                    }
-                </div>
+
             </div>
         </div>
     </div>
-    <div class="description d-flex justify-content-end">
-        <div>
+    <div class="description d-flex justify-content-center">
+        <div class="w-100">
             {{video.description}}
         </div>
     </div>

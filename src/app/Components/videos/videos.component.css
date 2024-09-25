@@ -1,8 +1,6 @@
-.box{
-    width: 310px;
-}
+
 .Videos{
-    direction: ltr;
+    direction: rtl;
 }
 .imgVideo{
     width: 80%;
@@ -14,8 +12,20 @@
     overflow: hidden;
     text-overflow: ellipsis; 
 }
-
-.contentBody{
-    direction: rtl;    
-    color: #3333337d;
+.view{
+    direction: rtl;
 }
+.contentBody{
+    display: block;
+}
+
+@media (max-width: 1200px){
+    .contentBody{
+        display: flex;
+        justify-content: space-between;
+    }
+    .Videos{
+        border: 1px solid #333;
+        box-shadow: 5px 5px 20px #333;
+    }
+  }

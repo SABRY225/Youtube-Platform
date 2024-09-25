@@ -1,3 +1,9 @@
 .VideoPage{
     direction: rtl;
 }
+
+@media (max-width: 1200px){
+    .videosCollection{
+        margin-bottom: 8rem;
+    }
+  }

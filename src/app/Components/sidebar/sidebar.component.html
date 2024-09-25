@@ -1,4 +1,4 @@
-<div class="navbar row p-3 d-flex align-items-center justify-content-between">
+<div class="navbar row p-3 d-flex align-items-center justify-content-around">
     @if (user.role=='Admin') {
         <div class="col-md-10 d-flex align-items-center admin">
             <img [src]="user.profilePicture" alt="" width="50px" class="imgUser">
@@ -33,7 +33,7 @@
             </form>
         </div>        
     }
-    <div class="col-md-12 col-lg-2 layout">
+    <div class="col-md-2 layout">
         <div class="logo order-2" (click)="openHome()">
             <img src="logo.png" alt="" >
         </div>
