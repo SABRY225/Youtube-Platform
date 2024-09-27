@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommentService {
-  private apiUrl='http://localhost:3000/api/comment/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/comment/';
 
   constructor(private http:HttpClient) { }
 

@@ -7,7 +7,7 @@ import { CurrentUser } from '../Models/user';
   providedIn: 'root'
 })
 export class SubscriptionsService {
-  private apiUrl='http://localhost:3000/api/subscriptions/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/subscriptions/';
 
   constructor(private http:HttpClient) { }
 

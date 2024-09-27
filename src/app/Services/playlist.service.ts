@@ -7,7 +7,7 @@ import { Playlist } from '../Models/playlist';
   providedIn: 'root'
 })
 export class PlaylistService {
-  private apiUrl='http://localhost:3000/api/playlist/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/playlist/';
 
   constructor(private http:HttpClient) { }
 

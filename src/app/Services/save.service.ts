@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SaveService {
-  private apiUrl='http://localhost:3000/api/save/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/save/';
 
   constructor(private http:HttpClient) { }
 

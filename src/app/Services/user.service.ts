@@ -7,7 +7,7 @@ import { CountsOfStatistics, CurrentUser, User } from '../Models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl='http://localhost:3000/api/user/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/user/';
 
   constructor(private http:HttpClient) { }
 

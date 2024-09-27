@@ -7,7 +7,7 @@ import { Category } from '../Models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  private apiUrl='http://localhost:3000/api/Category/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/Category/';
 
   constructor(private http:HttpClient) { }
 

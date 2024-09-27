@@ -7,7 +7,7 @@ import { Video } from '../Models/video';
   providedIn: 'root'
 })
 export class VideoService {
-  private apiUrl='http://localhost:3000/api/video/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/video/';
 
   constructor(private http:HttpClient) { }
 

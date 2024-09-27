@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  private apiUrl='http://localhost:3000/api/search/';
+  private apiUrl='https://youtube-platform-api.vercel.app/api/search/';
 
   constructor(private http:HttpClient) { }
 
