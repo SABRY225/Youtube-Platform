@@ -15,13 +15,7 @@ export interface CurrentUser {
     profilePicture: string
 }
 
-export interface Profile {
-    userName: string,
-    country: string,
-    dateOfBirth:string,
-    profilePicture: string,
-    backgroundUser:string
-}
+
 export interface VerifyUser {
     email: string,
     otp: string
