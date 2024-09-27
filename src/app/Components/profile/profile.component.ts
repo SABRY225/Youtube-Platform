@@ -1,15 +1,16 @@
-
+import { Component } from '@angular/core';
 import { UserService } from '../../Services/user.service';
 import { Profile, ResultMessage } from '../../Models/user';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CategoryService } from '../../Services/category.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { PlaylistService } from '../../Services/playlist.service';
 import { Playlist } from '../../Models/playlist';
 import { MyplaylistComponent } from '../myplaylist/myplaylist.component';
 import { MyvideosComponent } from '../myvideos/myvideos.component';
 declare var bootstrap: any;
-
-
-type NewType = ActivatedRoute;
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-profile',
@@ -37,7 +38,7 @@ export class ProfileComponent {
     private userService: UserService,
     private playlistService: PlaylistService,
     private router: Router,
-    private route: NewType,
+    private route: ActivatedRoute,
     private snackBar: MatSnackBar  // Inject MatSnackBar
   ) { }
   ngOnInit(): void {
@@ -111,7 +112,3 @@ export class ProfileComponent {
     });
   }
 }
-function Component(arg0: { selector: string; standalone: boolean; imports: any[]; templateUrl: string; styleUrl: string; }): (target: typeof ProfileComponent) => void | typeof ProfileComponent {
-  throw new Error('Function not implemented.');
-}
-
